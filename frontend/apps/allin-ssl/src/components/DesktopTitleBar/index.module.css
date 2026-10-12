@@ -1,0 +1,66 @@
+.titlebar {
+  display: flex;
+  align-items: center;
+  height: var(--n-header-height);
+  padding-left: 1.2rem;
+  background-color: var(--n-header-color);
+  border-bottom: 1px solid var(--n-border-color);
+  color: var(--n-text-color-1);
+  user-select: none;
+}
+
+.left, .right, .brand, .controls {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.brand {
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.brand img {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.dragSpace {
+  flex: 1;
+  align-self: stretch;
+  min-width: 2rem;
+}
+
+.right {
+  margin-right: 1.2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.6rem;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: default;
+}
+
+.button:hover {
+  background-color: var(--n-action-color);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--n-primary-color);
+  outline-offset: -3px;
+}
+
+.close:hover {
+  background-color: #c42b1c;
+  color: #fff;
+}

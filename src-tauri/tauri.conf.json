@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ALLinSSL",
+  "version": "0.0.1",
+  "identifier": "cn.allinssl.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm prepare:desktop",
+    "beforeBuildCommand": "pnpm prepare:desktop",
+    "frontendDist": "../static/build"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "capabilities": [{
+        "identifier": "desktop-password",
+        "description": "仅允许主窗口请求专用密码重置及设置数据目录操作",
+        "windows": ["main"],
+        "permissions": ["allow-reset-password", "allow-data-directory"]
+      }, {
+        "identifier": "desktop-titlebar",
+        "description": "仅允许本地窗口使用标题栏和窗口控制",
+        "windows": ["main", "page-*"],
+        "permissions": [
+          "core:window:allow-minimize",
+          "core:window:allow-toggle-maximize",
+          "core:window:allow-close",
+          "core:window:allow-is-maximized",
+          "core:window:allow-start-dragging",
+          "core:window:allow-internal-toggle-maximize"
+        ]
+      }],
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico", "icons/icon.png"],
+    "resources": ["../LICENSE"],
+    "windows": {
+      "webviewInstallMode": { "type": "embedBootstrapper", "silent": true },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese"],
+        "displayLanguageSelector": false,
+        "installerHooks": "installer-hooks.nsh"
+      }
+    }
+  }
+}
